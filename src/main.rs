@@ -13,12 +13,12 @@ impl Draw for SelectBox {
     }
 }
 
-use gui::Screen;
+use gui::{Button, Screen};
 
 fn main() {
     let screen = Screen {
         components: vec![
-            (SelectBox {
+            Box::new(SelectBox {
                 width: 75,
                 height: 10,
                 options: vec![
@@ -27,14 +27,10 @@ fn main() {
                     String::from("No"),
                 ],
             }),
-            (SelectBox {
+            Box::new(Button {
                 width: 50,
                 height: 10,
-                options: vec![
-                    String::from("Yes"),
-                    String::from("Maybe"),
-                    String::from("No"),
-                ],
+                label: String::from("OK"),
             }),
         ],
     };
